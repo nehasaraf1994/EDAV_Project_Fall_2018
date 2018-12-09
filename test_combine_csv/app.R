@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(tidyverse)
 library(leaflet)
 library(RColorBrewer)
 countries_data <- read_csv("../countries.csv")
