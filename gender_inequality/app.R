@@ -1,17 +1,9 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 library(tidyverse)
 library(leaflet)
 library(tidyverse)
 library(RColorBrewer)
+
 countries_data <- read_csv("countries.csv")
 
 
@@ -39,11 +31,11 @@ ui <- bootstrapPage(
                                         "Women Judges",
                                         "Access to Public Space",
                                         "Early Marriage",
-                                        "Female_Genital_Mutilation",
+                                        "Female Genital Mutilation",
                                         "Women Laws",
-                                        "Prevelance_of_Violence",
-                                        "Son_Education_Preference",
-                                        "Attitudes_Towards_Violence",
+                                        "Prevelance of Violence",
+                                        "Son Education Preference",
+                                        "Attitudes Towards Violence",
                                         "Female Share of Board Seats",
                                         "Time Spent in paid and unpaid work",
                                         "Employment Rate",
@@ -131,11 +123,11 @@ server <- function(input, output, session) {
            "Women Judges" = merge(women_judges, countries_data, by="Country"),
            "Access to Public Space" = merge(access_space, countries_data, by="Country"),
            "Early Marriage" = merge(early_marriage, countries_data, by="Country"),
-           "Female_Genital_Mutilation" = merge(female_genital_mutilation, countries_data, by="Country"),
+           "Female Genital Mutilation" = merge(female_genital_mutilation, countries_data, by="Country"),
            "Women Laws" = merge(women_laws, countries_data, by="Country"),
-           "Prevelance_of_Violence" = merge(prevelance_of_violence, countries_data, by="Country"),
-           "Son_Education_Preference" = merge(son_education_preference, countries_data, by="Country"),
-           "Attitudes_Towards_Violence" = merge(attitudes_towards_violence, countries_data, by="Country"),
+           "Prevelance of Violence" = merge(prevelance_of_violence, countries_data, by="Country"),
+           "Son Education Preference" = merge(son_education_preference, countries_data, by="Country"),
+           "Attitudes Towards Violence" = merge(attitudes_towards_violence, countries_data, by="Country"),
            "Female Share of Board Seats" = merge(emp_seats, countries_data, by="Country"),
            "Time Spent in paid and unpaid work" = merge(emp_paid_unpaid, countries_data, by="Country"),
            "Employment Rate" = merge(emp_employed, countries_data, by="Country"),
