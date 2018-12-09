@@ -182,7 +182,8 @@ server <- function(input, output, session) {
     # won't need to change dynamically (at least, not unless the
     # entire map is being torn down and recreated).
     
-    leaflet(filteredData()) %>% addTiles()
+    leaflet(filteredData()) %>% 
+      addTiles(options = providerTileOptions(noWrap = TRUE))
   })
   
   # Incremental changes to the map (in this case, replacing the
