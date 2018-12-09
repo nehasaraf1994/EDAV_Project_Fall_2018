@@ -1,0 +1,75 @@
+"","COU","Country","IND","Indicator","YEAR","Year","Unit Code","Unit","PowerCode Code","PowerCode","Reference Period Code","Reference Period","Value","Flag Codes","Flags"
+"1","AUS","Australia","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,24.7,NA,NA
+"2","AUS","Australia","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,26.7,NA,NA
+"3","AUT","Austria","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,27.9,NA,NA
+"4","AUT","Austria","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,30.6,NA,NA
+"5","BEL","Belgium","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,38,NA,NA
+"6","BEL","Belgium","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,39.3,NA,NA
+"7","CAN","Canada","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,24.7,NA,NA
+"8","CAN","Canada","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,25.2,NA,NA
+"9","CZE","Czech Republic","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,22,NA,NA
+"10","CZE","Czech Republic","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,19,NA,NA
+"11","DNK","Denmark","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,39.1,NA,NA
+"12","DNK","Denmark","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,38,NA,NA
+"13","FIN","Finland","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,42.5,NA,NA
+"14","FIN","Finland","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,42.5,NA,NA
+"15","FRA","France","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,26.9,NA,NA
+"16","FRA","France","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,26.2,NA,NA
+"17","DEU","Germany","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,32.9,NA,NA
+"18","DEU","Germany","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,36.5,NA,NA
+"19","GRC","Greece","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,21,NA,NA
+"20","GRC","Greece","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,23,NA,NA
+"21","HUN","Hungary","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,8.8,NA,NA
+"22","HUN","Hungary","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,10.1,NA,NA
+"23","ISL","Iceland","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,39.7,NA,NA
+"24","ISL","Iceland","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,41.3,NA,NA
+"25","IRL","Ireland","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,15.1,NA,NA
+"26","IRL","Ireland","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,16.3,NA,NA
+"27","ITA","Italy","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,21.6,NA,NA
+"28","ITA","Italy","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,31,NA,NA
+"29","JPN","Japan","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,10.6,NA,NA
+"30","JPN","Japan","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,9.5,NA,NA
+"31","KOR","Korea","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,15.7,NA,NA
+"32","KOR","Korea","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,16.3,NA,NA
+"33","LUX","Luxembourg","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,25,NA,NA
+"34","LUX","Luxembourg","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,28.3,NA,NA
+"35","MEX","Mexico","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,36.8,NA,NA
+"36","MEX","Mexico","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,38,NA,NA
+"37","NLD","Netherlands","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,38.7,NA,NA
+"38","NLD","Netherlands","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,37.3,NA,NA
+"39","NZL","New Zealand","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,32.2,NA,NA
+"40","NZL","New Zealand","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,31.4,NA,NA
+"41","NOR","Norway","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,39.6,NA,NA
+"42","NOR","Norway","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,39.6,NA,NA
+"43","POL","Poland","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,23.7,NA,NA
+"44","POL","Poland","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,24.1,NA,NA
+"45","PRT","Portugal","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,28.7,NA,NA
+"46","PRT","Portugal","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,31.3,NA,NA
+"47","SVK","Slovak Republic","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,17.3,NA,NA
+"48","SVK","Slovak Republic","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,18.7,NA,NA
+"49","ESP","Spain","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,36,NA,NA
+"50","ESP","Spain","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,41.1,NA,NA
+"51","SWE","Sweden","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,44.7,NA,NA
+"52","SWE","Sweden","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,43.6,NA,NA
+"53","CHE","Switzerland","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,28.5,NA,NA
+"54","CHE","Switzerland","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,30.5,NA,NA
+"55","TUR","Turkey","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,14.2,NA,NA
+"56","TUR","Turkey","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,14.4,NA,NA
+"57","GBR","United Kingdom","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,22.3,NA,NA
+"58","GBR","United Kingdom","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,29.4,NA,NA
+"59","USA","United States","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,17,NA,NA
+"60","USA","United States","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,19.4,NA,NA
+"61","CHL","Chile","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,14.2,NA,NA
+"62","CHL","Chile","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,15.8,NA,NA
+"63","COL","Colombia","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,12,NA,NA
+"64","COL","Colombia","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,19.9,NA,NA
+"65","EST","Estonia","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,19.8,NA,NA
+"66","EST","Estonia","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,19.8,NA,NA
+"67","ISR","Israel","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,20,NA,NA
+"68","ISR","Israel","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,22.5,NA,NA
+"69","LVA","Latvia","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,23,NA,NA
+"70","LVA","Latvia","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,18,NA,NA
+"71","SVN","Slovenia","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,32.2,NA,NA
+"72","SVN","Slovenia","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,36.7,NA,NA
+"73","OAVG","OECD - Average","EMPW_PARL","Share of women parliamentarians",2012,2012,"PC","Percentage",0,"Units",NA,NA,26.4,NA,NA
+"74","OAVG","OECD - Average","EMPW_PARL","Share of women parliamentarians",2015,2015,"PC","Percentage",0,"Units",NA,NA,27.8,NA,NA
