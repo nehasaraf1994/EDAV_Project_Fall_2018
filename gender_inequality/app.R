@@ -181,7 +181,6 @@ server <- function(input, output, session) {
     # Use leaflet() here, and only include aspects of the map that
     # won't need to change dynamically (at least, not unless the
     # entire map is being torn down and recreated).
-    #data_lat_long <- read_csv("../modelskiModern.csv")
     
     leaflet(filteredData()) %>% addTiles()
   })
@@ -195,7 +194,7 @@ server <- function(input, output, session) {
 
     leafletProxy("map", data = filteredData()) %>%
       clearShapes() %>%
-      addCircles(radius = ~(Value/max(Value) * 100) ^ 3, weight = 1,
+      addCircles(radius = ~((Value/max(Value)) * 100) ^ 2.7, weight = 1,
                  fillColor = ~pal(Value), fillOpacity = 0.5, popup = ~paste(Country, round(Value,digits=2))
       )
   })
