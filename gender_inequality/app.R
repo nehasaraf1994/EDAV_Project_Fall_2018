@@ -17,12 +17,12 @@ ui <- bootstrapPage(
                             rownames(subset(brewer.pal.info, category %in% c("seq", "div")))
                 ),
                 checkboxInput("legend", "Show legend", TRUE),
-                
+
                 selectInput(inputId = "gender_variables",
                             label = "Choose the variable:",
-                            choices = c("Adult Education", 
-                                        "Enrolment Rate by Age", 
-                                        "Distribution of teachers by gender", 
+                            choices = c("Adult Education",
+                                        "Enrolment Rate by Age",
+                                        "Distribution of teachers by gender",
                                         "Graduation Rates",
                                         "Transition from school",
                                         "Graduation Field",
