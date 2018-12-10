@@ -1,0 +1,68 @@
+---
+title: "EDAV Project"
+author: "Raj Biswas"
+date: "12/8/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, fig.width=8, fig.height=8}
+library("tidyverse")
+wage_gap <- read.csv("GENDER_EMP_WAGE_GAP.csv")
+wage_gap$Time <- as.factor(wage_gap$Time)
+ggplot(wage_gap, aes(Time, Country)) + geom_tile(aes(fill=Value), color = "white") + scale_fill_viridis_c(direction = 1) +
+  xlab("Year") + ylab("Country") + ggtitle("Wage Gap Percentage") +
+  theme(plot.title = element_text(hjust = 0.5))
+wage_gap <- wage_gap[(wage_gap$Country != "Korea") & (wage_gap$Country != "Japan") & (wage_gap$Country != "OECD - Average"),]
+ggplot(wage_gap, aes(Time, Country)) + geom_tile(aes(fill=Value), color = "white") + scale_fill_viridis_c(direction = 1) +
+  xlab("Year") + ylab("Country") + ggtitle("Wage Gap Percentage") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+board_seats <- read.csv("GENDER_EMP_BOARD_SEATS.csv")
+board_seats$Time <- as.factor(board_seats$Time)
+ggplot(board_seats, aes(Time, Country)) + geom_tile(aes(fill=Value)) + scale_fill_viridis_c(direction = 1) +
+  xlab("Year") + ylab("Country") + ggtitle("Women Board Seat Percentage") +
+  theme(plot.title = element_text(hjust = 0.5))
+board_seats <- board_seats[(board_seats$Country != "Norway") & (board_seats$Country != "Iceland") & (board_seats$Country != "OECD - Average"),]
+ggplot(board_seats, aes(Time, Country)) + geom_tile(aes(fill=Value)) + scale_fill_viridis_c(direction = 1) +
+  xlab("Year") + ylab("Country") + ggtitle("Women Board Seat Percentage") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r, fig.height=12, fig.width=10}
+paid_unpaid <- read.csv("GENDER_EMP_PAID_UNPAID.csv")
+paid_unpaid$Indicator <- factor(paid_unpaid$Indicator, levels = c("Time spent in total work, by sex", "Time spent in paid work, by sex", "Time spent in unpaid work, by sex"))
+paid_unpaid$Sex <- factor(paid_unpaid$Sex, levels = c("Women", "Men"))
+ggplot(paid_unpaid, aes(reorder(Country, Value), Value, color = Sex)) + geom_point() + coord_flip() +
+  facet_wrap(~Indicator, ncol  = 1) +
+  xlab("Country") + ylab("Value") + ggtitle("Time Spent in Paid/ Unpaid work (mins)") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r, fig.height=12, fig.width=10}
+employment_unemployment <- read.csv("GENDER_EMP_UNEMP.csv")
+employment_unemployment$Time <- as.factor(employment_unemployment$Time)
+subset <- employment_unemployment[employment_unemployment$Indicator == "Employment rate, by sex and age group, quarterly data", ]
+subset <- subset[subset$Country != "Turkey", ]
+subset <- subset[subset$Age.Group == "25-54", ]
+subset$Year <- substr(subset$Time, 4,7)
+subset <- subset %>% group_by(Country, Sex, Year) %>% summarise(n = mean(Value))
+ggplot(subset, aes(Year, Country)) + geom_tile(aes(fill=n), color = "white") + scale_fill_viridis_c(direction = 1) +
+  facet_wrap(~Sex, ncol  = 2, scales = "free_x") +
+  xlab("Year") + ylab("Country") + ggtitle("Employment Rate") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+subset <- employment_unemployment[employment_unemployment$Indicator == "Unemployment rate, by sex and age group, quarterly data", ]
+subset <- subset[subset$Age.Group == "25-54", ]
+subset$Year <- substr(subset$Time, 4,7)
+subset <- subset %>% group_by(Country, Sex, Year) %>% summarise(n = mean(Value))
+ggplot(subset, aes(Year, Country)) + geom_tile(aes(fill=n), color = "white") + scale_fill_viridis_c(direction = 1) +
+  facet_wrap(~Sex, ncol  = 2, scales = "free_x") +
+  xlab("Year") + ylab("Country") + ggtitle("Unemployment Rate") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
