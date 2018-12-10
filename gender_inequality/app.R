@@ -3,11 +3,13 @@ library(tidyverse)
 library(leaflet)
 library(tidyverse)
 library(RColorBrewer)
+library(shinythemes)
 
 countries_data <- read_csv("countries.csv")
 
 
 ui <- bootstrapPage(
+  theme = shinytheme("cyborg"),
   tags$style(type = "text/css", "html, body {width:100%;height:100%}"),
   leafletOutput("map", width = "100%", height = "100%"),
   absolutePanel(top = 10, right = 10,
@@ -182,8 +184,14 @@ server <- function(input, output, session) {
     # won't need to change dynamically (at least, not unless the
     # entire map is being torn down and recreated).
     
-    leaflet(filteredData()) %>% 
-      addTiles(options = providerTileOptions(noWrap = TRUE))
+    leaflet(filteredData()) %>%
+      addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
+      setView(lng = -19.102055,
+              lat = 52.776186,
+              zoom = 2) %>%
+      addProviderTiles("Esri.WorldImagery")
+    
+    
   })
   
   # Incremental changes to the map (in this case, replacing the
@@ -196,7 +204,7 @@ server <- function(input, output, session) {
     leafletProxy("map", data = filteredData()) %>%
       clearShapes() %>%
       addCircles(radius = ~((Value/max(Value)) * 100) ^ 2.7, weight = 1,
-                 fillColor = ~pal(Value), fillOpacity = 0.5, popup = ~paste(Country, round(Value,digits=2))
+                 fillColor = ~pal(Value), fillOpacity = 0.9, popup = ~paste(Country, round(Value,digits=2))
       )
   })
   
