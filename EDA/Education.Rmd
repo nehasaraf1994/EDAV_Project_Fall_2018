@@ -1,0 +1,297 @@
+---
+title: "Education"
+author: "Neha Saraf"
+date: "12/1/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library("tidyverse")
+library("ggridges")
+```
+
+#### 1. Adult education and learning
+
+This indicator presents internationally comparable data on participation in adult learning activities (formal and/or non-formal education).
+
+```{r Adult Education, include=FALSE}
+ed_data_one <- read_csv("adult_education.csv") 
+```
+
+```{r}
+ggplot(ed_data_one, aes(y = reorder(Country, Value),x = Value))+
+  geom_line(aes(group = Country))+
+  geom_point(aes(color = factor(SEX)))+
+  labs(x="Percentage", y="Country")+
+  ggtitle("Percentage of the population that participate in formal and/or non-formal education")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+#### 2. Enrollment rate by age group by gender
+
+Enrolment rate per age is the percentage of students enrolled in each type of institution over the total of students.
+
+```{r Enrolment rate, include=FALSE}
+ed_data_two <- read_csv("enrollment_by_age.csv") 
+
+```
+
+```{r}
+completeFun <- function(data, desiredCols) {
+  completeVec <- complete.cases(data[, desiredCols])
+  return(data[completeVec, ])
+}
+
+# Cleaning the data by removing NA from Value column
+cleaned_data_two <- completeFun(ed_data_two, "Value")
+cleaned_data_two <- cleaned_data_two %>%
+                    filter(Value > 0)
+```
+
+```{r}
+country_data_year_two <- cleaned_data_two %>%
+  group_by(Country, Year) %>%
+  summarise(Value = mean(Value))
+
+ggplot(country_data_year_two, aes(y = reorder(Country, Value),x = Value)) + 
+  geom_point() + 
+  ggtitle("Enrollment Rate by Country and Year") +
+  labs(x = "Enrollment Rate", y = "Country") +
+  facet_grid(. ~ Year)
+
+
+
+ggplot(country_data_year_two, aes(y = Country,x = Year)) + 
+  geom_tile(aes(fill=Value)) + 
+  scale_fill_viridis_c(direction = 1) +
+  ggtitle("Enrollment Rate by Country and Year") +
+  labs(x = "Enrollment Rate", y = "Country")
+```
+
+```{r, fig.width=9, fig.height=7}
+country_data_education_two <- cleaned_data_two %>%
+  group_by(Country, `Education level and programe orientation`, Gender) %>%
+  summarise(Value = mean(Value))
+
+country_data_education_two$`education_level_short` <- recode(country_data_education_two$`Education level and programe orientation`,
+                                                             "Primary education (ISCED2011 level 1)" = "Primary",
+                                                             "Total secondary education (ISCED2011 levels 2 and 3)" = "Total Secondary",
+                                                             "Total tertiary education (ISCED2011 levels 5 to 8)" = "Total Tertiary",
+                                                             "Upper secondary education (ISCED2011 level 3)" = "Upper Secondary",
+                                                             "Early childhood education  (ISCED2011 level 0)" = "Early Childhood",
+                                                             "Post-secondary non-tertiary education  (ISCED2011 level 4)" = "Post Secondary")
+
+country_data_education_two <- country_data_education_two[country_data_education_two$education_level_short != "Primary", ]
+ggplot(country_data_education_two, aes(y = reorder(Country, Value), x = Value)) + 
+  geom_point(alpha = 0.8) + 
+  ggtitle("Enrollment Rate by Country and Education") +
+  labs(x = "Enrollment Rate", y = "Country") +
+  facet_grid(. ~ education_level_short)
+```
+
+```{r}
+country_data_age_two <- cleaned_data_two %>%
+  group_by(Country, Age) %>%
+  summarise(Value = mean(Value))
+
+ggplot(country_data_age_two, aes(y = reorder(Country, Value),x = Value)) + 
+  geom_point() + 
+  ggtitle("Enrollment Rate by Country and Age") +
+  labs(x = "Enrollment Rate", y = "Country") +
+  facet_grid(. ~ Age)
+```
+
+#### 3. Distribution of teachers by age and gender
+
+Distribution of teachers by gender and different age groups.
+
+```{r Teachers, include=FALSE}
+ed_data_three <- read_csv("distribution_teachers.csv")
+```
+
+```{r}
+
+cleaned_data_three <- completeFun(ed_data_three, "Value")
+cleaned_data_three <- cleaned_data_three %>%
+                    filter(Value > 0)
+
+```
+
+```{r fig.height=10, fig.width=8}
+
+country_data_education_three <- cleaned_data_three %>%
+  group_by(Country, SEX, `Level of education`) %>%
+  summarise(Value = mean(Value))
+country_data_education_three$`education_level_short` <- recode(country_data_education_three$`Level of education`,
+                                                             "Primary education (ISCED2011 level 1)" = "Primary",
+                                                             "Total secondary education (ISCED2011 levels 2 and 3)" = "Total Secondary",
+                                                             "Lower secondary education (ISCED2011 level 2)" = "Lower Secondary",
+                                                             "Upper secondary education (ISCED2011 level 3)" = "Upper Secondary",
+                                                             "Early childhood education  (ISCED2011 level 0)" = "Early Childhood",
+                                                             "Post-secondary non-tertiary education  (ISCED2011 level 4)" = "Post Secondary")
+
+ggplot(country_data_education_three, aes(y = reorder(Country, Value),x = Value))+
+  geom_line(aes(group = Country))+
+  geom_point(aes(color = factor(SEX)))+
+  labs(x="Percentage", y="Country")+
+  ggtitle("Distribution of teachers by age and gender")+
+  facet_wrap(~education_level_short)
+
+```
+
+#### 4. Distribution of graduates and entrants by Field 
+
+Graduates/new entrants in each educational field as a percentage of the sum of graduates/new entrants in all fields.
+
+```{r Graduates by Field, include=FALSE}
+ed_data_four <- read_csv("graduation_field.csv")
+```
+
+
+```{r}
+
+cleaned_data_four <- completeFun(ed_data_four, "Value")
+cleaned_data_four <- cleaned_data_four %>%
+                    filter(Value > 0)
+
+cleaned_data_four$Indicator_Short <- recode(cleaned_data_four$Indicator, "Share of graduates by gender in fields of education" = "Graduates",
+                                            "Share of graduates by field" = "Graduates",
+                                            "Share of mobile graduates by field" = "Graduates",
+                                            "Share of new entrants by gender in fields of education" = "Entrants",
+                                            "Share of new entrants by field" = "Entrants")
+
+```
+
+```{r fig.height=12, fig.width=10}
+country_data_education_four <- cleaned_data_four %>%
+  group_by(Country, SEX, Indicator_Short, `Level of education`) %>%
+  summarise(Value = mean(Value))
+
+
+country_data_education_four$`education_level_short` <- recode(country_data_education_four$`Level of education`,
+                                                             "Bachelor’s or equivalent level (ISCED2011 level 6)" = "Bachelor's",
+                                                             "Doctoral or equivalent level  (ISCED2011 level 8)" = "Doctoral",
+                                                             "Master’s or equivalent level  long first degrees (ISCED2011 level 7)" = "Master's/Long Level Degree",
+                                                             "Master’s or equivalent level (ISCED2011 level 7)" = "Master's",
+                                                             "Short-cycle tertiary education (ISCED2011 level 5)" = "Short Cycle Tertiary",
+                                                             "Post-secondary non-tertiary vocational education  (ISCED2011 level 4 programme 5)" = "Post Secondary Vocational",
+                                                             "Total tertiary education (ISCED2011 levels 5 to 8)" = "Total Tertiary",
+                                                             "Upper secondary vocational education (ISCED2011 level 3 programme 5)" = "Upper Secondary Vocational")
+
+country_data_education_four <- country_data_education_four[country_data_education_four$Indicator_Short == "Graduates", ]
+ggplot(country_data_education_four, aes(y = reorder(Country, Value),x = Value))+
+  geom_line(aes(group = Country))+
+  geom_point(aes(color = factor(SEX)))+
+  labs(x="Percentage", y="Country")+
+  ggtitle("Distribution of graduates and entrants by Field")+
+  facet_wrap(~education_level_short)
+```
+
+#### 5. Graduation rates, entry rates and average ages 
+
+Graduation/entry rates represent an estimated percentage of an age group expected to graduate/enter a certain level of education at least once in their lifetime.
+
+```{r Graduation Rates, include=FALSE}
+ed_data_five <- read_csv("graduation_rates.csv")
+```
+
+
+```{r}
+
+cleaned_data_five <- completeFun(ed_data_five, "Value")
+cleaned_data_five <- cleaned_data_five %>%
+                    filter(Value > 0)
+
+```
+
+
+```{r fig.height=12, fig.width=10}
+country_data_education_five <- cleaned_data_five %>%
+  group_by(Country, SEX, Age) %>%
+  summarise(Value = mean(Value))
+
+
+
+ggplot(country_data_education_five, aes(y = reorder(Country, Value), x = Value))+
+  geom_line(aes(group = Country))+
+  geom_point(aes(color = factor(SEX)))+
+  labs(x="Percentage", y="Country")+
+  ggtitle("Graduation Rates by Age")+
+  facet_wrap(~Age)
+
+```
+
+#### 6. Transition from school to work 
+
+This indicator presents internationally comparable data on labour force status and participation in formal education, by educational attainment, age and gender as reported by the labour force survey (LFS) and published in OECD Education at a Glance 2018. For trend data, the Education at a Glance Database includes data from 1997 to 2017 (or years with available data).
+
+```{r Transition, include=FALSE}
+ed_data_six <- read_csv("transition.csv")
+```
+
+```{r}
+
+cleaned_data_six <- completeFun(ed_data_six, "Value")
+cleaned_data_six <- cleaned_data_six %>%
+                    filter(Value > 0)
+
+```
+
+```{r fig.height=5, fig.width=5}
+cleaned_data_six <- cleaned_data_six %>% subset(`Education and labour force status` != "Work-study programme") %>%
+  group_by(Country, SEX, YEAR, `Education and labour force status`) %>%
+  summarise(Value = mean(Value))
+cleaned_data_six <- cleaned_data_six[(cleaned_data_six$Country != "European Union 23 members in OECD") & (cleaned_data_six$Country != "OECD - Average"), ]
+cleaned_data_six$status_after_education <- recode(cleaned_data_six$`Education and labour force status`,
+                                                  "Employed" = "Employed",
+                                                  "In education" = "In education",
+                                                  "Inactive" = "Unemployed or Inactive",
+                                                  "Not in education" = "Not in education",
+                                                  "Other employed" = "Employed",
+                                                  "Unemployed" = "Unemployed or Inactive",
+                                                  "Unemployed or Inactive" = "Unemployed or Inactive",
+                                                  "Unemployed or Inactive (NEET)" = "Unemployed or Inactive")
+
+
+cleaned_data_six$status_after_education <- factor(cleaned_data_six$status_after_education, levels = c("Employed", "Unemployed or Inactive", "In education", "Not in education"))
+
+ggplot(subset(cleaned_data_six, status_after_education == "Employed" | status_after_education == "Unemployed or Inactive"), aes(x = YEAR, y = Country)) +
+  geom_tile(aes(fill=Value)) +
+  scale_fill_viridis_c(direction = 1) +
+  facet_wrap(~status_after_education) +
+  ggtitle("Transition from School to Work") +
+  labs(x = "Time", y = "Country")
+
+
+ggplot(subset(cleaned_data_six, status_after_education == "In education" | status_after_education == "Not in education"), aes(x = YEAR, y = Country)) +
+  geom_tile(aes(fill=Value)) +
+  scale_fill_viridis_c(direction = 1) +
+  facet_wrap(~status_after_education) +
+  ggtitle("Transition from School to Work") +
+  labs(x = "Time", y = "Country")
+
+```
+
+```{r fig.height=5, fig.width=5}
+
+cleaned_by_years_six <- cleaned_data_six %>% group_by(Country, status_after_education, SEX) %>% summarize(Value = mean(Value))
+
+ggplot(subset(cleaned_by_years_six, status_after_education == "Employed" | status_after_education == "Unemployed or Inactive"), aes(y = reorder(Country, Value), x = Value))+
+  geom_line(aes(group = Country))+
+  geom_point(aes(color = factor(SEX)))+
+  labs(x="Percentage", y="Country")+
+  ggtitle("")+
+  facet_wrap(~status_after_education)
+
+
+ggplot(subset(cleaned_by_years_six, status_after_education == "In education" | status_after_education == "Not in education"), aes(y = reorder(Country, Value), x = Value))+
+  geom_line(aes(group = Country))+
+  geom_point(aes(color = factor(SEX)))+
+  labs(x="Percentage", y="Country")+
+  ggtitle("")+
+  facet_wrap(~status_after_education)
+
+
+
+
+```
