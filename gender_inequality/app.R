@@ -1,58 +1,56 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
 library(shiny)
-library(tidyverse)
 library(leaflet)
-library(tidyverse)
 library(RColorBrewer)
-library(shinythemes)
+library(shinydashboard)
+library(tidyverse)
 
-countries_data <- read_csv("countries.csv")
-
-
-ui <- bootstrapPage(
-  theme = shinytheme("cyborg"),
-  tags$style(type = "text/css", "html, body {width:100%;height:100%}"),
-  leafletOutput("map", width = "100%", height = "100%"),
-  absolutePanel(top = 10, right = 10,
-                selectInput("colors", "Color Scheme",
-                            rownames(subset(brewer.pal.info, category %in% c("seq", "div")))
+ui <- dashboardPage(
+  dashboardHeader(title = "Gender Equality"),
+  dashboardSidebar(
+    sidebarMenu(id = "tabs",
+                menuItem("Development", icon = icon("building"),
+                         menuSubItem("Access to Public Space", tabName = "Access to Public Space"),
+                         menuSubItem("Early Marriage", tabName = "Early Marriage"),
+                         menuSubItem("Female Genital Mutilation", tabName = "Female Genital Mutilation"),
+                         menuSubItem("Women Laws", tabName = "Women Laws"),
+                         menuSubItem("Prevelance of Violence", tabName = "Prevelance of Violence"),
+                         menuSubItem("Son Education Preference", tabName = "Son Education Preference"),
+                         menuSubItem("Attitudes Towards Violence", tabName = "Attitudes Towards Violence")
                 ),
-                checkboxInput("legend", "Show legend", TRUE),
-
-                selectInput(inputId = "gender_variables",
-                            label = "Choose the variable:",
-                            choices = c("Adult Education",
-                                        "Enrolment Rate by Age",
-                                        "Distribution of teachers by gender",
-                                        "Graduation Rates",
-                                        "Transition from school",
-                                        "Graduation Field",
-                                        "Women in Parliament",
-                                        "Women in Court Instance",
-                                        "Women in Central Government",
-                                        "Women Ministers",
-                                        "Women Judges",
-                                        "Access to Public Space",
-                                        "Early Marriage",
-                                        "Female Genital Mutilation",
-                                        "Women Laws",
-                                        "Prevelance of Violence",
-                                        "Son Education Preference",
-                                        "Attitudes Towards Violence",
-                                        "Female Share of Board Seats",
-                                        "Time Spent in paid and unpaid work",
-                                        "Employment Rate",
-                                        "Gender Wage Gap"))
+                menuItem("Employment", icon = icon("dollar"),
+                         menuSubItem("Female Share of Board Seats", tabName = "Female Share of Board Seats"),
+                         menuSubItem("Time Spent in paid and unpaid work", tabName = "Time Spent in paid and unpaid work"),
+                         menuSubItem("Employment Rate", tabName = "Employment Rate"),
+                         menuSubItem("Gender Wage Gap", tabName = "Gender Wage Gap")),
+                menuItem("Education", icon = icon("book"),
+                         menuSubItem("Adult Education", tabName = "Adult Education"),
+                         menuSubItem("Enrolment Rate by Age", tabName = "Enrolment Rate by Age"),
+                         menuSubItem("Distribution of teachers by gender", tabName = "Distribution of teachers by gender"),
+                         menuSubItem("Graduation Rates", tabName = "Graduation Rates"),
+                         menuSubItem("Transition from school", tabName = "Transition from school"),
+                         menuSubItem("Graduation Field", tabName = "Graduation Field")),
+                menuItem("Government", icon = icon("balance-scale"),
+                         menuSubItem("Women in Parliament", tabName = "Women in Parliament"),
+                         menuSubItem("Women in Court Instance", tabName = "Women in Court Instance"),
+                         menuSubItem("Women in Central Government", tabName = "Women in Central Government"),
+                         menuSubItem("Women Ministers", tabName = "Women Ministers"),
+                         menuSubItem("Women Judges", tabName = "Women Judges"))),
+    textOutput("res")
   ),
-  fixedPanel(bottom = 10, left = 10,
-    verbatimTextOutput("summary")
+  dashboardBody(
+    tags$style(type = "text/css", "#map {height: calc(100vh - 80px) !important;}"),
+    checkboxInput("legend", "Show legend", TRUE),
+    leafletOutput("map", width = "100%", height = "100%")
   )
-  # sidebarLayout(
-  #   
-  #   sidebarPanel(
-  #     sliderInput("obs", "Number of observations:",  
-  #                 min = 1, max = 1000, value = 500)
-  #   )
-  # )
 )
 
 completeFun <- function(data, desiredCols) {
@@ -60,8 +58,8 @@ completeFun <- function(data, desiredCols) {
   return(data[completeVec, ])
 }
 
-server <- function(input, output, session) {
-  
+server <- function(input, output) {
+ 
   adult_education <- read_csv("education/adult_education.csv")
   enrollment_by_age <- read_csv("education/enrollment_by_age.csv")
   enrollment_by_age <- completeFun(enrollment_by_age, "Value")
@@ -78,6 +76,7 @@ server <- function(input, output, session) {
   women_courts <- women_courts %>% filter(Value > 0)
   access_space <- completeFun(read_csv("Development/Access_To_Public_Space.csv"), "Value")
   access_space <- access_space %>% filter(Value > 0)
+  merge_access_space <- merge(access_space, countries_data, by="Country")
   early_marriage <- completeFun(read_csv("Development/Early_Marriage.csv"), "Value")
   early_marriage$Value <- early_marriage$Value * 100
   early_marriage <- early_marriage %>% filter(Value > 0)
@@ -111,58 +110,76 @@ server <- function(input, output, session) {
   women_judges <-  completeFun(read_csv("Government/women_judges.csv"), "Value")
   
   variableInput <- reactive({
-    switch(input$gender_variables,
-           "Enrolment Rate by Age" = merge(enrollment_by_age, countries_data, by="Country"),
-           "Adult Education" = merge(adult_education, countries_data, by="Country"),
-           "Distribution of teachers by gender" = merge(distribution_teachers, countries_data, by="Country"),
-           "Graduation Rates" = merge(graduation_rates, countries_data, by="Country"),
-           "Transition from school" = merge(transition, countries_data, by="Country"),
-           "Graduation Field" = merge(graduation_field, countries_data, by="Country"),
-           "Women in Parliament" = merge(women_parliament, countries_data, by="Country"),
-           "Women in Court Instance" = merge(women_court_instance, countries_data, by="Country"),
-           "Women in Central Government" = merge(women_central_government, countries_data, by="Country"),
-           "Women Ministers" = merge(women_ministers, countries_data, by="Country"),
-           "Women Judges" = merge(women_judges, countries_data, by="Country"),
-           "Access to Public Space" = merge(access_space, countries_data, by="Country"),
-           "Early Marriage" = merge(early_marriage, countries_data, by="Country"),
-           "Female Genital Mutilation" = merge(female_genital_mutilation, countries_data, by="Country"),
-           "Women Laws" = merge(women_laws, countries_data, by="Country"),
-           "Prevelance of Violence" = merge(prevelance_of_violence, countries_data, by="Country"),
-           "Son Education Preference" = merge(son_education_preference, countries_data, by="Country"),
-           "Attitudes Towards Violence" = merge(attitudes_towards_violence, countries_data, by="Country"),
-           "Female Share of Board Seats" = merge(emp_seats, countries_data, by="Country"),
-           "Time Spent in paid and unpaid work" = merge(emp_paid_unpaid, countries_data, by="Country"),
-           "Employment Rate" = merge(emp_employed, countries_data, by="Country"),
-           "Gender Wage Gap" = merge(emp_wage, countries_data, by="Country")
-           )
+    #input$tabs
+    if(input$tabs == "Access to Public Space"){
+      merge(access_space, countries_data, by="Country")
+    }
+    else if(input$tabs == "Early Marriage"){
+      return(merge(early_marriage, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Female Genital Mutilation"){
+      return(merge(female_genital_mutilation, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Women Laws"){
+      return(merge(women_laws, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Prevelance of Violence"){
+      return(merge(prevelance_of_violence, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Son Education Preference"){
+      return(merge(son_education_preference, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Attitudes Towards Violence"){
+      return(merge(attitudes_towards_violence, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Female Share of Board Seats"){
+      return(merge(emp_seats, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Time Spent in paid and unpaid work"){
+      return(merge(emp_paid_unpaid, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Employment Rate"){
+      return(merge(emp_employed, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Gender Wage Gap"){
+      return(merge(emp_wage, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Adult Education"){
+        return(merge(adult_education, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Enrolment Rate by Age"){
+      return(merge(enrollment_by_age, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Transition from school"){
+      return(merge(transition, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Distribution of teachers by gender"){
+      return(merge(distribution_teachers, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Graduation Rates"){
+      return(merge(graduation_rates, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Graduation Field"){
+      return(merge(graduation_field, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Women in Parliament"){
+      return(merge(women_parliament, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Women in Court Instance"){
+      return(merge(women_court_instance, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Women in Central Government"){
+      return(merge(women_central_government, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Women Ministers"){
+      return(merge(women_ministers, countries_data, by="Country"))
+    }
+    else if(input$tabs == "Women Judges"){
+      return(merge(women_judges, countries_data, by="Country"))
+    }
   })
-  
-  variableSummary <- reactive({
-    switch(input$gender_variables,
-           "Enrolment Rate by Age" = "Enrolment rate per age is\nthe percentage of students enrolled in each type of institution\nover the total of students.",
-           "Adult Education" = "This indicator presents internationally\ncomparable data on participation\nin adult learning activities\n(formal and/or non-formal education).",
-           "Distribution of teachers by gender" = "Distribution of teachers by\ngender and different age groups.",
-           "Graduation Rates" = "Graduation/entry rates represent an estimated\npercentage of an age groupexpected to\ngraduate/enter a certain level of education\nat least once in their lifetime.",
-           "Transition from school" = "This indicator presents internationally\ncomparable data on labour force status\nand participation in formal education,\nby educational attainment, age and gender as\nreported by the labour force survey (LFS)\nand published in OECD Education at a Glance 2018.\nFor trend data, the Education at a Glance Database\nincludes data from 1997 to 2017 (or years with available data).",
-           "Graduation Field" = "Graduates/new entrants in each educational field\nas a percentage of the sum of graduates/new entrants in all fields.",
-           "Women in Parliament" = "Share of women parliamentarians",
-           "Women in Court Instance" = "Share of women in courts of first instance",
-           "Women in Central Government" = "Share of central government employment filled by women",
-           "Women Ministers" = "Share of women ministers",
-           "Women Judges" = "Share of professional judges that are women",
-           "Access to Public Space" = "Whether women face restrictions on their freedom of movement and access to public space",
-           "Early Marriage" = " Early marriage, Percentage of women married between 15 and 19 years",
-           "Female_Genital_Mutilation" = "Percentage of women who have undergone any type of female genital mutilation",
-           "Women Laws" = "Whether the legal framework offers women legal protection from violence",
-           "Prevelance_of_Violence" = "",
-           "Son_Education_Preference" = "Percentage of people agreeing that university is more important for boys than for girls.",
-           "Attitudes_Towards_Violence" = "Percentage of women who agree that a husband/partner is justified in beating his wife/partner under certain circumstances",
-           "Female Share of Board Seats" = "Female share of seats on boards\nof the largest publicly listed companies",
-           "Time Spent in paid and unpaid work" = "Time spent in paid and unpaid work, by sex",
-           "Employment Rate" = "Employment and unemployment rate, by sex\nand age group, quarterly data",
-           "Gender Wage Gap" = "Gender pay gaps persist and wome\nare more likely to end their lives in poverty. ")
-  })
-  output$summary <- renderText({ variableSummary() })
+
+ 
   
   # Reactive expression for the data subsetted to what the user selected
   filteredData <- reactive({
@@ -176,7 +193,7 @@ server <- function(input, output, session) {
   # This reactive expression represents the palette function,
   # which changes as the user makes selections in UI.
   colorpal <- reactive({
-    colorNumeric(input$colors, filteredData()$Value)
+    colorNumeric('Reds', filteredData()$Value)
   })
   
   output$map <- renderLeaflet({
@@ -184,7 +201,7 @@ server <- function(input, output, session) {
     # won't need to change dynamically (at least, not unless the
     # entire map is being torn down and recreated).
     
-    leaflet(filteredData()) %>%
+    leaflet() %>%
       addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
       setView(lng = -19.102055,
               lat = 52.776186,
@@ -207,22 +224,25 @@ server <- function(input, output, session) {
                  fillColor = ~pal(Value), fillOpacity = 0.9, popup = ~paste(Country, round(Value,digits=2))
       )
   })
-  
-  # Use a separate observer to recreate the legend as needed.
+  # 
+  # # Use a separate observer to recreate the legend as needed.
   observe({
     proxy <- leafletProxy("map", data = filteredData())
 
     # Remove any existing legend, and only if the legend is
     # enabled, create a new one.
     proxy %>% clearControls()
-    if (input$legend) {
+    if (!is.null(input$legend)) {
       pal <- colorpal()
       proxy %>% addLegend(position = "bottomright",
                           pal = pal, values = ~Value
       )
     }
   })
+  
+  # output$res <- renderText({
+  #   paste("You've selected:", variableInput())
+  # })
 }
 
 shinyApp(ui, server)
-
