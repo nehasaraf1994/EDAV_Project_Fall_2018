@@ -6,6 +6,10 @@
 #
 #    http://shiny.rstudio.com/
 #
+load.libraries <- c('shiny', 'leaflet', 'RColorBrewer', 'shinydashboard','tidyverse')
+install.lib <- load.libraries[!load.libraries %in% installed.packages()]
+for(libs in install.lib) install.packages(libs, dep = T)
+sapply(load.libraries, require, character = TRUE)
 
 library(shiny)
 library(leaflet)
@@ -28,14 +32,13 @@ ui <- dashboardPage(
                 ),
                 menuItem("Employment", icon = icon("dollar"),
                          menuSubItem("Female Share of Board Seats", tabName = "Female_Share_of_Board_Seats"),
-                         menuSubItem("Time Spent in paid and unpaid work", tabName = "Time_Spent_in_paid_and_unpaid_work"),
+                         menuSubItem("Time Spent in work", tabName = "Time_Spent_in_paid_and_unpaid_work"),
                          menuSubItem("Employment Rate", tabName = "Employment_Rate"),
                          menuSubItem("Gender Wage Gap", tabName = "Gender_Wage_Gap")),
                 menuItem("Education", icon = icon("book"),
                          menuSubItem("Adult Education", tabName = "Adult_Education"),
-                         menuSubItem("Enrollment Rate by Age", tabName = "Enrolment_Rate_by_Age"),
-                         menuSubItem("Distribution of teachers by gender", tabName = "Distribution_of_teachers_by_gender"),
-                         menuSubItem("Graduation Rates", tabName = "Graduation_Rates"),
+                         menuSubItem("Enrollment Rate", tabName = "Enrolment_Rate"),
+                         menuSubItem("Distribution of teachers", tabName = "Distribution_of_teachers"),
                          menuSubItem("Transition from school", tabName = "Transition_from_school"),
                          menuSubItem("Graduation Field", tabName = "Graduation_Field")),
                 menuItem("Government", icon = icon("balance-scale"),
@@ -177,14 +180,15 @@ server <- function(input, output) {
     }
     else if(input$tabs == "Adult_Education"){
       output$summary <- renderText({
-        paste("This indicator presents internationally comparable data on participation in adult learning activities (formal and/or non-formal education).")
+        paste("This indicator presents internationally comparable data on participation of women in adult learning activities (formal and/or non-formal education).")
       })
-        # merged_df <- merge(adult_education, countries_data, by="Country")
-        # merged_df <- merged_df %>%
-        #   select(Country, Latitude, Longitude, SEX, Value)
-        return(merge(adult_education, countries_data, by="Country"))
+      merged_df <- merge(adult_education, countries_data, by="Country")
+      merged_df <- merged_df %>%
+        select(Country, Latitude, Longitude, SEX, Value)
+      merged_df <- merged_df %>% filter(SEX == "F")
+      return(merged_df)
     }
-    else if(input$tabs == "Enrolment_Rate_by_Age"){
+    else if(input$tabs == "Enrolment_Rate"){
       output$summary <- renderText({
         paste("Percentage of students enrolled in each type of institution over the total of students.")
       })
@@ -192,27 +196,29 @@ server <- function(input, output) {
     }
     else if(input$tabs == "Transition_from_school"){
       output$summary <- renderText({
-        paste("This indicator presents internationally comparable data on labour force 
-              status and participation in formal education, by educational attainment, 
-              age and gender as reported by the labour force survey (LFS) and published 
-              in OECD Education at a Glance 2018. For trend data, the Education at a 
+        paste("This indicator presents internationally comparable data on labour force
+              status and participation in formal education, by educational attainment,
+              age and gender as reported by the labour force survey (LFS) and published
+              in OECD Education at a Glance 2018. For trend data, the Education at a
               Glance Database includes data from 1997 to 2017 (or years with available data).")
       })
-      return(merge(transition, countries_data, by="Country"))
+      merged_df <- merge(transition, countries_data, by="Country")
+      merged_df <- merged_df %>%
+        select(Country, Latitude, Longitude, SEX, Value)
+      merged_df <- merged_df %>% filter(SEX == "F")
+      return(merged_df)
     }
-    else if(input$tabs == "Distribution_of_teachers_by_gender"){
+    else if(input$tabs == "Distribution_of_teachers"){
       output$summary <- renderText({
-        paste("Distribution of teachers by gender and different age groups.")
+        paste("Distribution of female teachers in different countries")
       })
-      return(merge(distribution_teachers, countries_data, by="Country"))
+      merged_df <- merge(distribution_teachers, countries_data, by="Country")
+      merged_df <- merged_df %>%
+        select(Country, Latitude, Longitude, SEX, Value)
+      merged_df <- merged_df %>% filter(SEX == "F")
+      return(merged_df)
     }
-    else if(input$tabs == "Graduation_Rates"){
-      output$summary <- renderText({
-        paste("Graduation/entry rates represent an estimated percentage of an age groupexpected to
-              graduate/enter a certain level of education at least once in their lifetime.")
-      })
-      return(merge(graduation_rates, countries_data, by="Country"))
-    }
+    
     else if(input$tabs == "Graduation_Field"){
       output$summary <- renderText({
         paste("Graduates/new entrants in each educational field as a percentage of the sum of graduates/new entrants in all fields.")
@@ -265,7 +271,7 @@ server <- function(input, output) {
   # This reactive expression represents the palette function,
   # which changes as the user makes selections in UI.
   colorpal <- reactive({
-    colorNumeric('Reds', variableInput()$Value)
+    colorNumeric('Reds', filteredData()$Value)
   })
   
   output$map <- renderLeaflet({
@@ -292,7 +298,7 @@ server <- function(input, output) {
 
     leafletProxy("map", data = filteredData()) %>%
       clearShapes() %>%
-      addCircles(radius = ~((Value/max(Value)) * 100) ^ 2.8, weight = 2,
+      addCircles(radius = ~((Value/max(Value)) * 100) ^ 2.8, weight = 1.5, color = "white",
                  fillColor = ~pal(Value), fillOpacity = 0.9, popup = ~paste(Country, round(Value,digits=2))
       )
   })
