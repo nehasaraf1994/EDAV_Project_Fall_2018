@@ -13,6 +13,8 @@ library(RColorBrewer)
 library(shinydashboard)
 library(tidyverse)
 
+countries_data <- read_csv("countries.csv")
+
 ui <- dashboardPage(
   dashboardHeader(title = "Gender Equality"),
   dashboardSidebar(
