@@ -1,0 +1,141 @@
+---
+title: "Untitled"
+author: "Karan Sindwani"
+date: "12/6/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(ggplot2)
+library(tidyr)
+df_women_parl <- read.csv("women_parliamentaries.csv")
+df<- df_women_parl[df_women_parl$Indicator == "Share of women parliamentarians",]
+
+df$men <- 100 - df$Value
+df$women <- df$Value
+
+df_sel <- df[,(names(df) %in% c('Country','women', 'men'))]
+
+tidydata <- df_sel %>% gather('women', 'men',key = "Gender", 
+                                 value = "percent", -Country)
+
+
+ggplot(df, aes(x = Value)) + 
+  geom_histogram(fill = "#cc9a38", color = "#473e2c", bins=20) + 
+  ggtitle("Parliamentarians") +
+  labs(x = "Share of women", y = "Frequency") +
+  facet_grid(. ~ Year)
+
+
+ggplot(df, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Parliamentarians, faceted by year") +
+  labs(x = "Share of women", y = "Country") +
+  facet_grid(. ~ Year)
+
+
+```
+
+```{r }
+df2<- df_women_parl[df_women_parl$Indicator == "Share of central government employment filled by women",]
+
+ggplot(df2, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Central Government Employees") +
+  labs(x = "Share of Women", y = "Country") 
+
+```
+
+```{r}
+
+df<- df_women_parl[df_women_parl$Indicator == "Share of women ministers",]
+
+df$men <- 100 - df$Value
+df$women <- df$Value
+
+df_sel <- df[,(names(df) %in% c('Country','women', 'men'))]
+
+tidydata <- df_sel %>% gather('women', 'men',key = "Gender", 
+                                 value = "percent", -Country)
+
+
+ggplot(df, aes(x = Value)) + 
+  geom_histogram(fill = "#cc9a38", color = "#473e2c", bins=20) + 
+  ggtitle("Ministers") +
+  labs(x = "Share of women", y = "Frequency") +
+  facet_grid(. ~ Year)
+
+
+ggplot(df, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Ministers") +
+  labs(x = "Share of women", y = "Country") +
+  facet_grid(. ~ Year)
+
+```
+
+
+```{r}
+
+df<- df_women_parl[df_women_parl$Indicator == "Share of professional judges that are women",]
+
+df$men <- 100 - df$Value
+df$women <- df$Value
+
+df_sel <- df[,(names(df) %in% c('Country','women', 'men'))]
+
+tidydata <- df_sel %>% gather('women', 'men',key = "Gender", 
+                                 value = "percent", -Country)
+
+
+ggplot(df, aes(x = Value)) + 
+  geom_histogram(fill = "#cc9a38", color = "#473e2c", bins=20) + 
+  ggtitle("Professional Judges") +
+  labs(x = "Share of women", y = "Frequency") +
+  facet_grid(. ~ Year)
+
+
+ggplot(df, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Professional Judges") +
+  labs(x = "Share of women", y = "Country") +
+  facet_grid(. ~ Year)
+
+```
+
+
+```{r}
+
+df2<- df_women_parl[df_women_parl$Indicator == "Share of women in courts of first instance",]
+
+ggplot(df2, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Courts of first instance") +
+  labs(x = "Share of women", y = "Country") 
+
+
+```
+
+
+```{r}
+df2<- df_women_parl[df_women_parl$Indicator == "Share of women in appeal courts",]
+
+ggplot(df2, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Appeal courts") +
+  labs(x = "Share of women", y = "Country") 
+```
+
+```{r}
+df2<- df_women_parl[df_women_parl$Indicator == "Share of women in supreme courts",]
+
+ggplot(df2, aes(y = reorder(Country, Value), x= Value)) + 
+  geom_point() + 
+  ggtitle("Supreme courts") +
+  labs(x = "Share of women", y = "Country") 
+```
