@@ -46,7 +46,10 @@ ui <- dashboardPage(
                          menuSubItem("Women in Court Instance", tabName = "Women_in_Court_Instance"),
                          menuSubItem("Women in Central Government", tabName = "Women_in_Central_Government"),
                          menuSubItem("Women Ministers", tabName = "Women_Ministers"),
-                         menuSubItem("Women Judges", tabName = "Women_Judges")))
+                         menuSubItem("Women Judges", tabName = "Women_Judges"))),
+    
+    div(style="position: absolute; bottom: 50px; width:100%;
+   height:60px;","Note : Click on the circle to view the result for a particular country.")
   ),
   dashboardBody(
     tags$style(type = "text/css", "#map {height: calc(100vh - 80px) !important;}"),
