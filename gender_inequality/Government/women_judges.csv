@@ -1,0 +1,53 @@
+"","COU","Country","IND","Indicator","YEAR","Year","Unit Code","Unit","PowerCode Code","PowerCode","Reference Period Code","Reference Period","Value","Flag Codes","Flags"
+"1","AUT","Austria","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,49,NA,NA
+"2","AUT","Austria","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,51,NA,NA
+"3","BEL","Belgium","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,49,NA,NA
+"4","BEL","Belgium","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,52,NA,NA
+"5","CZE","Czech Republic","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,61,NA,NA
+"6","CZE","Czech Republic","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,61,NA,NA
+"7","DNK","Denmark","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,51,NA,NA
+"8","DNK","Denmark","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,51,NA,NA
+"9","FIN","Finland","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,51,NA,NA
+"10","FIN","Finland","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,52,NA,NA
+"11","FRA","France","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,60,NA,NA
+"12","FRA","France","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,62,NA,NA
+"13","GRC","Greece","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,68,NA,NA
+"14","GRC","Greece","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,72,NA,NA
+"15","HUN","Hungary","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,69,NA,NA
+"16","HUN","Hungary","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,69,NA,NA
+"17","ISL","Iceland","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,29,NA,NA
+"18","ISL","Iceland","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,30,NA,NA
+"19","IRL","Ireland","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,26,NA,NA
+"20","IRL","Ireland","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,33,NA,NA
+"21","ITA","Italy","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,51,NA,NA
+"22","ITA","Italy","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,52,NA,NA
+"23","JPN","Japan","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,19,NA,NA
+"24","JPN","Japan","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,20,NA,NA
+"25","LUX","Luxembourg","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,72,NA,NA
+"26","NLD","Netherlands","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,53,NA,NA
+"27","NLD","Netherlands","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,56,NA,NA
+"28","NOR","Norway","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,39,NA,NA
+"29","NOR","Norway","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,40,NA,NA
+"30","POL","Poland","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,63,NA,NA
+"31","PRT","Portugal","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,57,NA,NA
+"32","PRT","Portugal","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,58,NA,NA
+"33","SVK","Slovak Republic","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,63,NA,NA
+"34","SVK","Slovak Republic","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,62,NA,NA
+"35","ESP","Spain","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,50,NA,NA
+"36","ESP","Spain","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,52,NA,NA
+"37","SWE","Sweden","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,47,NA,NA
+"38","SWE","Sweden","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,49,NA,NA
+"39","CHE","Switzerland","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,35,NA,NA
+"40","CHE","Switzerland","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,40,NA,NA
+"41","TUR","Turkey","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,34,NA,NA
+"42","TUR","Turkey","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,34,NA,NA
+"43","EST","Estonia","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,64,NA,NA
+"44","EST","Estonia","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,63,NA,NA
+"45","ISR","Israel","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,50,NA,NA
+"46","ISR","Israel","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,51,NA,NA
+"47","LVA","Latvia","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,77,NA,NA
+"48","LVA","Latvia","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,77,NA,NA
+"49","SVN","Slovenia","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,78,NA,NA
+"50","SVN","Slovenia","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,78,NA,NA
+"51","OAVG","OECD - Average","EMPW_PJ","Share of professional judges that are women",2012,2012,"PC","Percentage",0,"Units",NA,NA,52,NA,NA
+"52","OAVG","OECD - Average","EMPW_PJ","Share of professional judges that are women",2014,2014,"PC","Percentage",0,"Units",NA,NA,53,NA,NA

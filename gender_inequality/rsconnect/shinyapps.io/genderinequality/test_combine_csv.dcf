@@ -1,0 +1,10 @@
+name: test_combine_csv
+title:
+username:
+account: genderinequality
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 610721
+bundleId: 1751332
+url: https://genderinequality.shinyapps.io/test_combine_csv/
+when: 1544388328.13885

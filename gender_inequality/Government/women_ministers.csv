@@ -1,0 +1,73 @@
+"","COU","Country","IND","Indicator","YEAR","Year","Unit Code","Unit","PowerCode Code","PowerCode","Reference Period Code","Reference Period","Value","Flag Codes","Flags"
+"1","AUS","Australia","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,20.7,NA,NA
+"2","AUS","Australia","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,17.2,NA,NA
+"3","AUT","Austria","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,46.2,NA,NA
+"4","AUT","Austria","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,30.8,NA,NA
+"5","BEL","Belgium","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,41.7,NA,NA
+"6","BEL","Belgium","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,23.1,NA,NA
+"7","CAN","Canada","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,26.9,NA,NA
+"8","CAN","Canada","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,30.8,NA,NA
+"9","CZE","Czech Republic","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,13.3,NA,NA
+"10","CZE","Czech Republic","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,18.8,NA,NA
+"11","DNK","Denmark","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,39.1,NA,NA
+"12","DNK","Denmark","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,26.3,NA,NA
+"13","FIN","Finland","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,50,NA,NA
+"14","FIN","Finland","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,62.5,NA,NA
+"15","FRA","France","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,20.8,NA,NA
+"16","FRA","France","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,50,NA,NA
+"17","DEU","Germany","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,33.3,NA,NA
+"18","DEU","Germany","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,33.3,NA,NA
+"19","GRC","Greece","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,5.6,NA,NA
+"20","GRC","Greece","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,10,NA,NA
+"21","HUN","Hungary","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,10,NA,NA
+"22","ISL","Iceland","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,50,NA,NA
+"23","ISL","Iceland","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,44.4,NA,NA
+"24","IRL","Ireland","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,14.3,NA,NA
+"25","IRL","Ireland","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,28.6,NA,NA
+"26","ITA","Italy","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,16.7,NA,NA
+"27","ITA","Italy","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,43.8,NA,NA
+"28","JPN","Japan","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,11.8,NA,NA
+"29","JPN","Japan","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,22.2,NA,NA
+"30","KOR","Korea","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,11.1,NA,NA
+"31","KOR","Korea","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,5.9,NA,NA
+"32","LUX","Luxembourg","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,26.7,NA,NA
+"33","LUX","Luxembourg","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,26.7,NA,NA
+"34","MEX","Mexico","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,21.1,NA,NA
+"35","MEX","Mexico","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,17.6,NA,NA
+"36","NLD","Netherlands","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,33.3,NA,NA
+"37","NLD","Netherlands","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,46.7,NA,NA
+"38","NZL","New Zealand","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,28.6,NA,NA
+"39","NZL","New Zealand","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,33.3,NA,NA
+"40","NOR","Norway","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,52.6,NA,NA
+"41","NOR","Norway","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,47.1,NA,NA
+"42","POL","Poland","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,22.2,NA,NA
+"43","POL","Poland","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,27.8,NA,NA
+"44","PRT","Portugal","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,18.2,NA,NA
+"45","PRT","Portugal","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,28.6,NA,NA
+"46","SVK","Slovak Republic","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,14.3,NA,NA
+"47","ESP","Spain","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,30.8,NA,NA
+"48","ESP","Spain","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,30.8,NA,NA
+"49","SWE","Sweden","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,52.2,NA,NA
+"50","SWE","Sweden","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,52.2,NA,NA
+"51","CHE","Switzerland","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,42.9,NA,NA
+"52","CHE","Switzerland","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,42.9,NA,NA
+"53","TUR","Turkey","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,4,NA,NA
+"54","TUR","Turkey","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,4,NA,NA
+"55","GBR","United Kingdom","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,17.2,NA,NA
+"56","GBR","United Kingdom","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,22.7,NA,NA
+"57","USA","United States","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,27.3,NA,NA
+"58","USA","United States","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,26.1,NA,NA
+"59","CHL","Chile","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,18.2,NA,NA
+"60","CHL","Chile","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,34.8,NA,NA
+"61","COL","Colombia","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,33.3,NA,NA
+"62","COL","Colombia","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,29.4,NA,NA
+"63","EST","Estonia","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,8.3,NA,NA
+"64","EST","Estonia","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,46.2,NA,NA
+"65","ISR","Israel","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,10.3,NA,NA
+"66","ISR","Israel","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,18.2,NA,NA
+"67","LVA","Latvia","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,30.8,NA,NA
+"68","LVA","Latvia","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,23.1,NA,NA
+"69","SVN","Slovenia","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,7.7,NA,NA
+"70","SVN","Slovenia","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,43.8,NA,NA
+"71","OAVG","OECD - Average","EMPW_MIN","Share of women ministers",2012,2012,"PC","Percentage",0,"Units",NA,NA,25.1,NA,NA
+"72","OAVG","OECD - Average","EMPW_MIN","Share of women ministers",2015,2015,"PC","Percentage",0,"Units",NA,NA,29.2,NA,NA
