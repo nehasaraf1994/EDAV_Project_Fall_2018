@@ -138,7 +138,7 @@ server <- function(input, output) {
     }
     else if(input$tabs == "Prevelance_of_Violence"){
       output$summary <- renderText({
-        paste("Percentage of women who have experienced physical and/pr sexual violence from an intimate partner at some time in their lives.")
+        paste("Percentage of women who have experienced physical and/or sexual violence from an intimate partner at some time in their lives.")
       })
       return(merge(prevelance_of_violence, countries_data, by="Country"))
     }
@@ -162,15 +162,23 @@ server <- function(input, output) {
     }
     else if(input$tabs == "Time_Spent_in_paid_and_unpaid_work"){
       output$summary <- renderText({
-        paste("Time spent in paid and unpaid work in different countries.")
+        paste("Time spent in paid and unpaid work by women in different countries.")
       })
-      return(merge(emp_paid_unpaid, countries_data, by="Country"))
+      merged_df <- merge(emp_paid_unpaid, countries_data, by="Country")
+      merged_df <- merged_df %>%
+        select(Country, Latitude, Longitude, SEX, Value)
+      merged_df <- merged_df %>% filter(SEX == "WOMEN")
+      return(merged_df)
     }
     else if(input$tabs == "Employment_Rate"){
       output$summary <- renderText({
-        paste("Employment and unemployment rate, by sex and age group, quarterly data")
+        paste("Employment and unemployment rate of women in different countries")
       })
-      return(merge(emp_employed, countries_data, by="Country"))
+      merged_df <- merge(emp_employed, countries_data, by="Country")
+      merged_df <- merged_df %>%
+        select(Country, Latitude, Longitude, SEX, Value)
+      merged_df <- merged_df %>% filter(SEX == "WOMEN")
+      return(merged_df)
     }
     else if(input$tabs == "Gender_Wage_Gap"){
       output$summary <- renderText({
@@ -180,7 +188,7 @@ server <- function(input, output) {
     }
     else if(input$tabs == "Adult_Education"){
       output$summary <- renderText({
-        paste("This indicator presents internationally comparable data on participation of women in adult learning activities (formal and/or non-formal education).")
+        paste("Percentage of women participation in adult learning activities (formal and/or non-formal education).")
       })
       merged_df <- merge(adult_education, countries_data, by="Country")
       merged_df <- merged_df %>%
@@ -196,11 +204,7 @@ server <- function(input, output) {
     }
     else if(input$tabs == "Transition_from_school"){
       output$summary <- renderText({
-        paste("This indicator presents internationally comparable data on labour force
-              status and participation in formal education, by educational attainment,
-              age and gender as reported by the labour force survey (LFS) and published
-              in OECD Education at a Glance 2018. For trend data, the Education at a
-              Glance Database includes data from 1997 to 2017 (or years with available data).")
+        paste("Percentage of women participation in formal education and labour force.")
       })
       merged_df <- merge(transition, countries_data, by="Country")
       merged_df <- merged_df %>%
@@ -221,9 +225,13 @@ server <- function(input, output) {
     
     else if(input$tabs == "Graduation_Field"){
       output$summary <- renderText({
-        paste("Graduates/new entrants in each educational field as a percentage of the sum of graduates/new entrants in all fields.")
+        paste("Graduates/new female entrants in each educational field as a percentage of the sum of women graduates/new entrants in all fields.")
       })
-      return(merge(graduation_field, countries_data, by="Country"))
+      merged_df <- merge(graduation_field, countries_data, by="Country")
+      merged_df <- merged_df %>%
+        select(Country, Latitude, Longitude, SEX, Value)
+      merged_df <- merged_df %>% filter(SEX == "F")
+      return(merged_df)
     }
     else if(input$tabs == "Women_in_Parliament"){
       output$summary <- renderText({
